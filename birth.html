@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Mridul 🎉</title>
+    <!-- Google Fonts for Elegant Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- CSS for Stunning Landing Page -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ff6b6b, #ffe66d, #ff9a9e, #6b7280);
+            background-size: 600% 600%;
+            animation: gradientFlow 20s ease infinite;
+        }
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        #landing {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+            text-align: center;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .birthday-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2em, 8vw, 6em);
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9), 0 0 40px #ff69b4;
+            margin-bottom: 20px;
+            opacity: 1;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4; }
+            to { text-shadow: 0 0 20px #fff, 0 0 40px #ff69b4; }
+        }
+        .subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.2em, 4vw, 2.5em);
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+            margin-bottom: 20px;
+            opacity: 1;
+        }
+        .start-button {
+            padding: 12px 30px;
+            font-size: 1.1em;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            background: linear-gradient(45deg, #ff1493, #ff69b4, #ffd700);
+            background-size: 200%;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.6);
+            transition: background-position 0.5s, transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+        }
+        .start-button:hover {
+            background-position: right;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.8);
+        }
+        .balloons-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .balloon {
+            position: absolute;
+            width: 60px;
+            height: 84px;
+            background: url("https://i.ibb.co/Kptvmn0t/ballon-removebg-preview-removebg-preview.png") no-repeat center/contain;
+            animation: float 12s infinite ease-in-out;
+            opacity: 0.8;
+        }
+        .balloon:nth-child(2) { left: 15%; animation-delay: 1s; }
+        .balloon:nth-child(3) { left: 30%; animation-delay: 3s; }
+        .balloon:nth-child(4) { right: 25%; animation-delay: 5s; }
+        .balloon:nth-child(5) { right: 10%; animation-delay: 7s; }
+        .balloon:nth-child(6) { left: 50%; animation-delay: 9s; }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); }
+            50% { transform: translateY(50vh) rotate(5deg); }
+            100% { transform: translateY(-100vh) rotate(-5deg); }
+        }
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #fff 20%, transparent 50%);
+            border-radius: 50%;
+            animation: sparkle 3s infinite;
+            z-index: 1;
+        }
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+       .circular-image {
+    position: absolute;
+    top: 15%; /* Reduced from 20% to move the image higher, creating a gap */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(100px, 20vw, 150px);
+    height: clamp(100px, 20vw, 150px);
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 2;
+    box-shadow: 0 5px 20px rgba(255, 105, 180, 0.6);
+    margin-bottom: 20px; /* Optional: Adds extra spacing below the image */
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .circular-image {
+        width: clamp(80px, 15vw, 100px);
+        height: clamp(80px, 15vw, 100px);
+        top: 10%; /* Adjusted for mobile to maintain gap */
+        margin-bottom: 10px; /* Smaller margin for mobile */
+    }
+}
+
+        .firework {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        .birthday-title.aside {
+            transform: translateX(-40%);
+            font-size: clamp(1.5em, 5vw, 3em);
+            transition: transform 1s ease, font-size 1s ease;
+        }
+        .girlfriend-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            max-width: 80%; /* Responsive max-width for desktop */
+            width: auto; /* Ensures container doesn't stretch unnecessarily */
+            height: auto; /* Maintains aspect ratio */
+            z-index: 5; /* Ensure it appears above other elements */
+        }
+        .girlfriend-image img {
+            width: 100%; /* Image fills the container */
+            height: auto; /* Maintains aspect ratio */
+        }
+        .girlfriend-image.show {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            transition: transform 1s ease, opacity 1s ease;
+        }
+        .chocolate-text {
+            line-height: 1.4;
+            position: absolute;
+            top: 30%;
+            text-align: center;
+        }
+        .letter-container {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            max-width: 90%;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+            border: 2px solid #ff69b4;
+            position: relative;
+            overflow: hidden;
+            background-image: linear-gradient(45deg, #fff 25%, #fff0f5 50%, #fff 75%);
+            background-size: 20px 20px;
+            margin: 0 auto;
+        }
+        .letter-container::before {
+            content: '💕';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 1.5em;
+            opacity: 0.2;
+        }
+        .letter-container::after {
+            content: '💕';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            opacity: 0.2;
+        }
+        .see-you-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.5em, 5vw, 3.5em);
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            opacity: 0;
+        }
+        .popup-image1, .popup-image2, .popup-image3, .popup-image4, .popup-image5 {
+            position: absolute;
+            opacity: 0;
+            max-width: 250px;
+            max-height: 250px;
+            margin: 20px;
+        }
+
+        /* Desktop Layout Adjustments */
+        .popup-image1 { top: 10%; left: 10%; }
+        .popup-image2 { top: 10%; right: 10%; }
+        .popup-image3 { bottom: 10%; left: 10%; }
+        .popup-image4 { bottom: 10%; right: 10%; }
+        .popup-image5 { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        
+
+        /* Mobile Layout Adjustments (max-width: 600px) */
+        @media (max-width: 600px) {
+            #landing {
+                padding: 10px;
+            }
+            .birthday-title {
+                font-size: clamp(1.5em, 8vw, 3em);
+                margin-bottom: 10px;
+            }
+            .subtitle {
+                font-size: clamp(1em, 4vw, 1.5em);
+                margin-bottom: 10px;
+            }
+            .start-button {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+            .balloon {
+                width: 40px;
+                height: 56px;
+            }
+            .sparkle {
+                width: 8px;
+                height: 8px;
+            }
+            .birthday-title.aside {
+                font-size: clamp(1.2em, 5vw, 2em);
+                transform: translateX(-30%);
+            }
+            .girlfriend-text {
+                font-size: clamp(1.5em, 5vw, 2.5em);
+                top: 10%;
+            }
+            .girlfriend-image {
+                max-width: 60%; /* Smaller on mobile to fit better */
+            }
+            .chocolate-text {
+                font-size: clamp(1.5em, 5vw, 2.5em);
+                top: 20%;
+            }
+            .letter-container {
+                padding: 10px;
+                max-width: 95%;
+                top: 10%;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: clamp(1em, 3vw, 1.5em);
+            }
+            .see-you-text {
+                font-size: clamp(1.5em, 5vw, 2.5em);
+                top: 15%;
+            }
+            .popup-image1 { top: 5%; left: 5%; max-width: 100px; max-height: 100px; margin: 5px; }
+            .popup-image2 { top: 5%; right: 5%; max-width: 100px; max-height: 100px; margin: 5px; }
+            .popup-image3 { bottom: 5%; left: 5%; max-width: 100px; max-height: 100px; margin: 5px; }
+            .popup-image4 { bottom: 5%; right: 5%; max-width: 100px; max-height: 100px; margin: 5px; }
+            .popup-image5 { top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 100px; max-height: 100px; margin: 5px; }
+        }
+    </style>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.10.7/dist/fireworks.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tholman/cursor-effects@latest/dist/browser.js"></script>
+</head>
+<body>
+    <!-- Landing Page -->
+    <section id="landing">
+        <div id="particles-js"></div>
+        <div class="firework" id="fireworks-container"></div>
+        <div class="circular-image" style="display: block; opacity: 0;">
+    <img src="https://i.ibb.co/5hXCFtKT/IMG-20251002-WA0011.jpg" alt="Circular Image" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+</div>
+        <h1 class="birthday-title">Happiest Birthday Mridul🎉</h1>
+        <p class="subtitle">Smallest token of appreciation that you arrived from Hell!</p>
+        <button class="start-button" onclick="startJourney()">Begin the Adventure</button>
+        <div class="balloons-container">
+            <div class="balloon" style="left: 10%;"></div>
+            <div class="balloon" style="left: 15%;"></div>
+            <div class="balloon" style="left: 30%;"></div>
+            <div class="balloon" style="right: 25%;"></div>
+            <div class="balloon" style="right: 10%;"></div>
+            <div class="balloon" style="left: 50%;"></div>
+        </div>
+        <div class="sparkle" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
+        <div class="sparkle" style="top: 25%; right: 15%; animation-delay: 0.7s;"></div>
+        <div class="sparkle" style="bottom: 20%; left: 20%; animation-delay: 1.2s;"></div>
+        <div class="sparkle" style="bottom: 10%; right: 10%; animation-delay: 1.8s;"></div>
+        <div class="sparkle" style="top: 50%; left: 40%; animation-delay: 2.3s;"></div>
+        <div class="girlfriend-image" style="display: none;">
+            <img src="https://i.ibb.co/whybSL76/us.png" alt="Your photo" style="width: 100%; border-radius: 15px; box-shadow: 0 5px 20px rgba(255, 105, 180, 0.6);">
+        </div>
+        <div class="girlfriend-text" style="display: none; font-family: 'Dancing Script', cursive; font-size: clamp(2em, 5vw, 3.5em); color: #494111; text-shadow: 0 0 10px rgba(54, 48, 15, 0.7); position: absolute; top: 10%; opacity: 0;">See you are growing older!</div>
+        <div class="chocolate-text" style="display: none; font-family: 'Dancing Script', cursive; font-size: clamp(2em, 5vw, 3.5em); color: #8B4513; text-shadow: 0 0 10px rgba(139, 69, 19, 0.7); position: absolute; top: 30%; text-align: center; opacity: 0;">
+            Accha Listen<br>Actually No Read This Because you Don't Listen!
+        </div>
+        <div class="letter-container" style="display: none; background: #fff; border-radius: 15px; padding: 40px; max-width: 600px; box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3); border: 2px solid #ff69b4; position: absolute; top: 1%; left: 30%; transform: translateX(-50%); overflow: hidden; background-image: linear-gradient(45deg, #fff 25%, #fff0f5 50%, #fff 75%); background-size: 20px 20px; opacity: 0; z-index: 10;">
+            <p class="love-letter-text" style="font-family: 'Dancing Script', cursive; font-size: clamp(1em, 3vw, 1.8em); color: #333; text-align: center;"></p>
+        </div>
+        <div class="see-you-text" style="display: none; font-family: 'Dancing Script', cursive; font-size: clamp(2em, 5vw, 3.5em); color: #462144; text-shadow: 0 0 10px rgba(202, 149, 209, 0.856); position: absolute; top: 30%; left: 50%; transform: translateX(-50%); text-align: center; opacity: 0;">MY STUD BOYFRIEND</div>
+        <div class="popup-image1" style="display: none; position: absolute; top: 10%; left: 10%; opacity: 0;">
+            <img src="https://i.ibb.co/fWJcJ99/IMG-20251002-WA0010.jpg" alt="Image 1" style="max-width: 300px; max-height: 300px; border-radius: 15px; box-shadow: 0 5px 20px rgba(255, 105, 180, 0.6);">
+        </div>
+        
+      
+        <div class="popup-image5" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0;">
+            <img src="https://i.ibb.co/GQzmvS1K/IMG-20251002-WA0012.jpg" alt="Image 5" style="max-width: 300px; max-height: 300px; border-radius: 15px; box-shadow: 0 5px 20px rgba(255, 105, 180, 0.6);">
+        </div>
+    </section>
+
+    <!-- JavaScript for Effects -->
+    <script>
+        // Typed.js for Dynamic Title
+        if (typeof Typed !== 'undefined') {
+            new Typed('.birthday-title', {
+                strings: ['Happy Birthday, Mridul 🎉'],
+                typeSpeed: 10000,
+                showCursor: false,
+                startDelay: 100000
+            });
+        } else {
+            console.warn('Typed.js not loaded.');
+            document.querySelector('.birthday-title').textContent = 'Happy Birthday, Mridul 🎉';
+            document.querySelector('.birthday-title').style.opacity = 1;
+        }
+
+        // GSAP Animations
+        if (typeof gsap === 'undefined') {
+            console.warn('GSAP not loaded. Using basic CSS animations.');
+            document.querySelector('.birthday-title').style.opacity = 1;
+            document.querySelector('.subtitle').style.opacity = 1;
+            document.querySelector('.start-button').style.opacity = 1;
+            // Fallback: fade out title and subtitle after 6 seconds, then show button (but in fallback, button is already shown, so adjust if needed)
+            setTimeout(() => {
+                document.querySelector('.birthday-title').style.opacity = 0;
+                document.querySelector('.subtitle').style.opacity = 0;
+            }, 6000);
+        } else {
+          gsap.fromTo(['.birthday-title', '.circular-image'], { y: 100, opacity: 0 }, { duration: 4, y: 0, opacity: 1, ease: 'power4.out', delay: 1 });
+            gsap.fromTo('.subtitle', { y: 100, opacity: 0 }, { duration: 4, y: 0, opacity: 1, ease: 'power4.out', delay: 1.5, onComplete: () => {
+                // Fade out title and subtitle after 5 seconds
+               gsap.to(['.birthday-title', '.subtitle', '.circular-image'], { duration: 2, opacity: 0, delay: 5, onComplete: () => {
+    gsap.fromTo('.start-button', { y: 100, opacity: 0 }, { duration: 4, y: 0, opacity: 1, ease: 'power4.out' });
+} });
+            } });
+        }
+
+        // Particles.js for Heart-Shaped Particles
+        if (typeof particlesJS !== 'undefined') {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80 },
+                    color: { value: ['#ff69b4', '#ffd700', '#ffffff', '#ff1493'] },
+                    shape: { type: ['heart', 'star'], stroke: { width: 0 } },
+                    opacity: { value: 0.7, random: true },
+                    size: { value: 8, random: true },
+                    move: { enable: true, speed: 3, direction: 'top', random: true, out_mode: 'out' }
+                },
+                interactivity: {
+                    events: { onhover: { enable: true, mode: 'bubble' }, onclick: { enable: true, mode: 'push' } },
+                    modes: { bubble: { distance: 200, size: 10, duration: 2, opacity: 0.8 } }
+                }
+            });
+        } else {
+            console.warn('Particles.js not loaded.');
+        }
+
+        // Cursor Sparkle Trail
+        if (typeof CursorEffects !== 'undefined') {
+            new CursorEffects({
+                type: 'fairyDustCursor',
+                colors: ['#ff69b4', '#ffd700', '#ffffff', '#ff1493']
+            });
+        } else {
+            console.warn('CursorEffects not loaded.');
+        }
+
+        // Confetti on Page Load
+        if (typeof confetti !== 'undefined') {
+            confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.5 },
+                colors: ['#ff69b4', '#ffd700', '#ffffff', '#ff1493']
+            });
+        } else {
+            console.warn('Confetti not loaded.');
+        }
+
+        // Fireworks.js for Background Fireworks
+        if (typeof Fireworks !== 'undefined') {
+            const container = document.getElementById('fireworks-container');
+            const fireworks = new Fireworks(container, {
+                autoresize: true,
+                opacity: 0.4,
+                acceleration: 1.05,
+                friction: 0.97,
+                gravity: 1.5,
+                particles: 50,
+                traceLength: 3,
+                traceSpeed: 10,
+                explosion: 5,
+                intensity: 20,
+                flickering: 50,
+                lineStyle: 'round',
+                hue: { min: 0, max: 360 },
+                delay: { min: 30, max: 60 },
+                rocketsPoint: { min: 50, max: 50 },
+                lineWidth: { explosion: { min: 1, max: 3 }, trace: { min: 1, max: 2 } },
+                brightness: { min: 50, max: 80 },
+                decay: { min: 0.015, max: 0.03 }
+            });
+            fireworks.start();
+            setTimeout(() => fireworks.stop(), 10000);
+        } else {
+            console.warn('Fireworks.js not loaded.');
+        }
+
+        // Start Journey Function
+        function startJourney() {
+            if (typeof gsap !== 'undefined') {
+                // Hide the button
+                gsap.to('.start-button', { duration: 0.5, opacity: 0, onComplete: () => {
+                    document.querySelector('.start-button').style.display = 'none';
+                } });
+                // Trigger confetti
+                if (typeof confetti !== 'undefined') {
+                    confetti({
+                        particleCount: 200,
+                        spread: 100,
+                        origin: { y: 0.5 },
+                        colors: ['#ff69b4', '#ffd700', '#ffffff', '#ff1493']
+                    });
+                }
+                // Move birthday title aside
+                gsap.to('.birthday-title', { duration: 1, x: '-40%', fontSize: 'clamp(2em, 5vw, 3em)', onComplete: () => {
+                    document.querySelector('.birthday-title').classList.add('aside');
+                } });
+                // Hide subtitle
+                gsap.to('.subtitle', { duration: 0.5, opacity: 0, display: 'none' });
+                // Show girlfriend text
+                gsap.fromTo('.girlfriend-text', 
+                    { opacity: 0, y: 50, display: 'block' }, 
+                    { duration: 1, opacity: 1, y: 0, display: 'block', delay: 0.5 }
+                );
+                // Show first image
+                gsap.fromTo('.girlfriend-image', 
+                    { scale: 0, opacity: 0, display: 'block' }, 
+                    { duration: 1, scale: 1, opacity: 1, display: 'block', delay: 2 }
+                );
+                // Fade out all elements
+                gsap.to(['.birthday-title', '.girlfriend-text', '.girlfriend-image'], 
+                    { duration: 1, opacity: 0, display: 'none', delay: 5 }
+                );
+                // Show and fade out chocolate text
+                gsap.fromTo('.chocolate-text', 
+                    { opacity: 0, y: 50, display: 'block' }, 
+                    { duration: 1, opacity: 1, y: 0, display: 'block', delay: 6 }
+                );
+                gsap.to('.chocolate-text', 
+                    { duration: 1, opacity: 0, display: 'none', delay: 8 }
+                );
+                // Show love letter and start typing, then disappear
+                gsap.fromTo('.letter-container', 
+                    { opacity: 0, scale: 0.8, display: 'none' }, 
+                    { duration: 1, opacity: 1, scale: 1, display: 'block', delay: 9, onComplete: () => {
+                        if (typeof Typed !== 'undefined') {
+                            new Typed('.love-letter-text', {
+                                strings: ['^500\n\nThere is not much for me to say. Nothing is left! but still you have to read, it\'s your day so I have to say I can never be able to express how much I love you. It overflow every time you\'re the best and I can\'t ! the man, you are. The best thing that happened to me probably, the happiness you bring, you complete every puzzle of my life you stupid! I love you 💞. Your perfect girlfriend. Akansha😎^300'],
+                                typeSpeed: 50,
+                                backSpeed: 30,
+                                showCursor: true,
+                                startDelay: 500,
+                                onComplete: () => {
+                                    // Fade out letter container and see-you-text after typing
+                                    gsap.to('.letter-container', { duration: 1, opacity: 0, display: 'none', delay: 1 });
+                                    gsap.fromTo('.see-you-text', 
+                                        { opacity: 0, y: 50, display: 'block' }, 
+                                        { duration: 1, opacity: 1, y: 0, display: 'block', delay: 1, onComplete: () => {
+                                            gsap.to('.see-you-text', { duration: 1, opacity: 0, display: 'none', delay: 2 });
+                                            // Show images after see-you-text fades
+                                            gsap.fromTo('.popup-image1', 
+                                                { opacity: 0, scale: 0, display: 'block' }, 
+                                                { duration: 1, opacity: 1, scale: 1, display: 'block', delay: 3 }
+                                            );
+                                            gsap.fromTo('.popup-image2', 
+                                                { opacity: 0, scale: 0, display: 'block' }, 
+                                                { duration: 1, opacity: 1, scale: 1, display: 'block', delay: 4 }
+                                            );
+                                            gsap.fromTo('.popup-image3', 
+                                                { opacity: 0, scale: 0, display: 'block' }, 
+                                                { duration: 1, opacity: 1, scale: 1, display: 'block', delay: 5 }
+                                            );
+                                            gsap.fromTo('.popup-image4', 
+                                                { opacity: 0, scale: 0, display: 'block' }, 
+                                                { duration: 1, opacity: 1, scale: 1, display: 'block', delay: 6 }
+                                            );
+                                            gsap.fromTo('.popup-image5', 
+                                                { opacity: 0, scale: 0, display: 'block' }, 
+                                                { duration: 1, opacity: 1, scale: 1, display: 'block', delay: 7, onComplete: () => {
+                                                    // All images disappear at once after 10 seconds
+                                                    gsap.to(['.popup-image1', '.popup-image2', '.popup-image3', '.popup-image4', '.popup-image5'], 
+                                                        { duration: 1, opacity: 0, display: 'none', delay: 10 }
+                                                    );
+                                                } }
+                                            );
+                                        } }
+                                    );
+                                }
+                            });
+                        } else {
+                            document.querySelector('.love-letter-text').textContent = '\n\nThere is not much for me to say. Nothing is left but still, it\'s your day so I have to say I can never be able to express how much I love you. It overflow every time you\'re the best and I can\'t ! the man, you are the best thing that happened to me, the happiness you bring, you complete every puzzle of my life, my love, I love you your perfect girlfriend. Akansha.';
+                            document.querySelector('.love-letter-text').style.opacity = 1;
+                            setTimeout(() => {
+                                document.querySelector('.letter-container').style.opacity = 0;
+                                document.querySelector('.letter-container').style.display = 'none';
+                                document.querySelector('.see-you-text').style.display = 'block';
+                                document.querySelector('.see-you-text').style.opacity = 1;
+                            }, 2000);
+                            setTimeout(() => {
+                                document.querySelector('.see-you-text').style.opacity = 0;
+                                document.querySelector('.see-you-text').style.display = 'none';
+                                // Fallback image sequence
+                                setTimeout(() => {
+                                    document.querySelector('.popup-image1').style.display = 'block';
+                                    document.querySelector('.popup-image1').style.opacity = 1;
+                                }, 3000);
+                                setTimeout(() => {
+                                    document.querySelector('.popup-image2').style.display = 'block';
+                                    document.querySelector('.popup-image2').style.opacity = 1;
+                                }, 4000);
+                                setTimeout(() => {
+                                    document.querySelector('.popup-image3').style.display = 'block';
+                                    document.querySelector('.popup-image3').style.opacity = 1;
+                                }, 5000);
+                                setTimeout(() => {
+                                    document.querySelector('.popup-image4').style.display = 'block';
+                                    document.querySelector('.popup-image4').style.opacity = 1;
+                                }, 6000);
+                                setTimeout(() => {
+                                    document.querySelector('.popup-image5').style.display = 'block';
+                                    document.querySelector('.popup-image5').style.opacity = 1;
+                                }, 7000);
+                                setTimeout(() => {
+                                    document.querySelector('.popup-image1').style.opacity = 0;
+                                    document.querySelector('.popup-image1').style.display = 'none';
+                                    document.querySelector('.popup-image2').style.opacity = 0;
+                                    document.querySelector('.popup-image2').style.display = 'none';
+                                    document.querySelector('.popup-image3').style.opacity = 0;
+                                    document.querySelector('.popup-image3').style.display = 'none';
+                                    document.querySelector('.popup-image4').style.opacity = 0;
+                                    document.querySelector('.popup-image4').style.display = 'none';
+                                    document.querySelector('.popup-image5').style.opacity = 0;
+                                    document.querySelector('.popup-image5').style.display = 'none';
+                                }, 17000); // 7s delay + 10s display
+                            }, 3000);
+                        }
+                    } 
+                });
+            } else {
+                // Fallback without GSAP
+                document.querySelector('.start-button').style.display = 'none';
+                document.querySelector('.birthday-title').style.transform = 'translateX(-40%)';
+                document.querySelector('.birthday-title').style.fontSize = 'clamp(2em, 5vw, 3em)';
+                document.querySelector('.subtitle').style.display = 'none';
+                document.querySelector('.girlfriend-text').style.display = 'block';
+                document.querySelector('.girlfriend-text').style.opacity = 1;
+                setTimeout(() => {
+                    document.querySelector('.girlfriend-image').style.display = 'block';
+                    document.querySelector('.girlfriend-image').style.opacity = 1;
+                    document.querySelector('.girlfriend-image').style.transform = 'translate(-50%, -50%) scale(1)';
+                }, 1500);
+                setTimeout(() => {
+                    document.querySelector('.birthday-title').style.display = 'none';
+                    document.querySelector('.girlfriend-text').style.display = 'none';
+                    document.querySelector('.girlfriend-image').style.display = 'none';
+                }, 5000);
+                setTimeout(() => {
+                    document.querySelector('.chocolate-text').style.display = 'block';
+                    document.querySelector('.chocolate-text').style.opacity = 1;
+                }, 6000);
+                setTimeout(() => {
+                    document.querySelector('.chocolate-text').style.display = 'none';
+                    document.querySelector('.chocolate-text').style.opacity = 0;
+                }, 8000);
+                setTimeout(() => {
+                    document.querySelector('.letter-container').style.display = 'block';
+                    document.querySelector('.letter-container').style.opacity = 1;
+                    document.querySelector('.love-letter-text').textContent = '\n\nThere is not much for me to say. Nothing is left but still, it\'s your day so I have to say I can never be able to express how much I love you. It overflow every time you\'re the best and I can\'t ! the man, you are the best thing that happened to me, the happiness you bring, you complete every puzzle of my life, my love, I love you your perfect girlfriend. Akansha.';
+                    document.querySelector('.love-letter-text').style.opacity = 1;
+                }, 9000);
+                setTimeout(() => {
+                    document.querySelector('.letter-container').style.display = 'none';
+                    document.querySelector('.letter-container').style.opacity = 0;
+                }, 14000);
+                setTimeout(() => {
+                    document.querySelector('.see-you-text').style.display = 'block';
+                    document.querySelector('.see-you-text').style.opacity = 1;
+                }, 14000);
+                setTimeout(() => {
+                    document.querySelector('.see-you-text').style.display = 'none';
+                    document.querySelector('.see-you-text').style.opacity = 0;
+                }, 17000);
+                setTimeout(() => {
+                    document.querySelector('.popup-image1').style.display = 'block';
+                    document.querySelector('.popup-image1').style.opacity = 1;
+                }, 18000);
+                setTimeout(() => {
+                    document.querySelector('.popup-image2').style.display = 'block';
+                    document.querySelector('.popup-image2').style.opacity = 1;
+                }, 19000);
+                setTimeout(() => {
+                    document.querySelector('.popup-image3').style.display = 'block';
+                    document.querySelector('.popup-image3').style.opacity = 1;
+                }, 20000);
+                setTimeout(() => {
+                    document.querySelector('.popup-image4').style.display = 'block';
+                    document.querySelector('.popup-image4').style.opacity = 1;
+                }, 21000);
+                setTimeout(() => {
+                    document.querySelector('.popup-image5').style.display = 'block';
+                    document.querySelector('.popup-image5').style.opacity = 1;
+                }, 22000);
+                setTimeout(() => {
+                    document.querySelector('.popup-image1').style.display = 'none';
+                    document.querySelector('.popup-image1').style.opacity = 0;
+                    document.querySelector('.popup-image2').style.display = 'none';
+                    document.querySelector('.popup-image2').style.opacity = 0;
+                    document.querySelector('.popup-image3').style.display = 'none';
+                    document.querySelector('.popup-image3').style.opacity = 0;
+                    document.querySelector('.popup-image4').style.display = 'none';
+                    document.querySelector('.popup-image4').style.opacity = 0;
+                    document.querySelector('.popup-image5').style.display = 'none';
+                    document.querySelector('.popup-image5').style.opacity = 0;
+                }, 40000);
+                if (typeof confetti !== 'undefined') {
+                    confetti({
+                        particleCount: 200,
+                        spread: 100,
+                        origin: { y: 0.5 },
+                        colors: ['#ff69b4', '#ffd700', '#ffffff', '#ff1493']
+                    });
+                }
+            }
+        }
+    </script>
+</body>
+</html>
